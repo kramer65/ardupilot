@@ -53,6 +53,12 @@ public:
 #if HAL_QUADPLANE_ENABLED
         LOITER_ALT_QLAND = 25,
 #endif
+        // TETHER_TAKEOFF  = 80,
+        TETHER_ZENITH   = 81,
+        // TETHER_POWER    = 82,
+        // TETHER_PULL_IN  = 83,  // When genereting power, the system alternates between TETHER_POWER and 
+        // TETHER_LANDING  = 84,
+        // TETHER_MINIMIZE_DRAG = 85,  // To stay in the air during storms
     };
 
     // Constructor
@@ -786,3 +792,18 @@ protected:
 };
 
 #endif
+
+class ModeTetherZenith : public Mode  // Copied from STABILIZE
+{
+public:
+
+    Number mode_number() const override { return Number::TETHER_ZENITH; }
+    const char *name() const override { return "TETHER_ZENITH"; }
+    const char *name4() const override { return "TZEN"; }
+    
+    bool allows_terrain_disable() const override { return true; }  // Is not handy above sea
+
+    // methods that affect movement of the vehicle in this mode
+    void update() override;
+
+};
