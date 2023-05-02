@@ -60,6 +60,7 @@ MAV_MODE GCS_MAVLINK_Plane::base_mode() const
     case Mode::Number::CIRCLE:
     case Mode::Number::TAKEOFF:
     case Mode::Number::TETHER_ZENITH:
+    case Mode::Number::TETHER_POWER:
 #if HAL_QUADPLANE_ENABLED
     case Mode::Number::QRTL:
     case Mode::Number::LOITER_ALT_QLAND:

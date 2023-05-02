@@ -71,6 +71,7 @@ void GCS_Plane::update_vehicle_sensor_status_flags(void)
     case Mode::Number::CIRCLE:
     case Mode::Number::TAKEOFF:
     case Mode::Number::TETHER_ZENITH:
+    case Mode::Number::TETHER_POWER:
 #if HAL_QUADPLANE_ENABLED
     case Mode::Number::QRTL:
     case Mode::Number::LOITER_ALT_QLAND:

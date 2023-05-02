@@ -55,8 +55,8 @@ public:
 #endif
         // TETHER_TAKEOFF  = 80,
         TETHER_ZENITH   = 81,
-        // TETHER_POWER    = 82,
-        // TETHER_PULL_IN  = 83,  // When genereting power, the system alternates between TETHER_POWER and 
+        TETHER_POWER    = 82,
+        // TETHER_PULL_IN  = 83,  // When genereting power, the system alternates between TETHER_POWER and TETHER_PULL_IN
         // TETHER_LANDING  = 84,
         // TETHER_MINIMIZE_DRAG = 85,  // To stay in the air during storms
     };
@@ -806,4 +806,34 @@ public:
     // methods that affect movement of the vehicle in this mode
     void update() override;
 
+};
+
+class ModeTetherPower : public Mode  // Copied from AUTO
+{
+public:
+
+    Number mode_number() const override { return Number::TETHER_POWER; }
+    const char *name() const override { return "TETHER_POWER"; }
+    const char *name4() const override { return "TPOW"; }
+
+    bool does_automatic_thermal_switch() const override { return true; }
+
+    // methods that affect movement of the vehicle in this mode
+    void update() override;
+
+    void navigate() override;
+
+    bool allows_throttle_nudging() const override { return true; }
+
+    bool does_auto_navigation() const override;
+
+    bool does_auto_throttle() const override;
+    
+    bool mode_allows_autotuning() const override { return true; }
+
+protected:
+
+    bool _enter() override;
+    void _exit() override;
+    bool _pre_arm_checks(size_t buflen, char *buffer) const override;
 };
