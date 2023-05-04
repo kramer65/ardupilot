@@ -825,9 +825,9 @@ public:
 
     bool allows_throttle_nudging() const override { return true; }
 
-    bool does_auto_navigation() const override;
+    // bool does_auto_navigation() const override;
 
-    bool does_auto_throttle() const override;
+    // bool does_auto_throttle() const override;
     
     bool mode_allows_autotuning() const override { return true; }
 
@@ -835,5 +835,5 @@ protected:
 
     bool _enter() override;
     void _exit() override;
-    bool _pre_arm_checks(size_t buflen, char *buffer) const override;
+    // bool _pre_arm_checks(size_t buflen, char *buffer) const override;
 };

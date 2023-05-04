@@ -97,7 +97,7 @@ Mode *Plane::mode_from_mode_num(const enum Mode::Number num)
         ret = &mode_tether_zenith;
         break;
     case Mode::Number::TETHER_POWER:
-        ret = &mode_tether_zenith;
+        ret = &mode_tether_power;
         break;
 
     }
