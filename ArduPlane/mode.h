@@ -806,6 +806,21 @@ public:
     // methods that affect movement of the vehicle in this mode
     void update() override;
 
+    void navigate() override;
+
+    bool allows_throttle_nudging() const override { return true; }
+
+    bool does_auto_navigation() const override { return true; }
+
+    bool does_auto_throttle() const override { return true; }
+    
+    bool mode_allows_autotuning() const override { return true; }
+
+protected:
+
+    bool _enter() override;
+    bool _pre_arm_checks(size_t buflen, char *buffer) const override { return false; }
+
 };
 
 class ModeTetherPower : public Mode  // Copied from AUTO
