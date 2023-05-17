@@ -96,6 +96,7 @@ void Plane::failsafe_short_on_event(enum failsafe_state fstype, ModeReason reaso
     case Mode::Number::LOITER_ALT_QLAND:
 #endif
     case Mode::Number::TETHER_ZENITH:
+    case Mode::Number::TETHER_POWER:
     case Mode::Number::INITIALISING:
         break;
     }
@@ -186,6 +187,7 @@ void Plane::failsafe_long_on_event(enum failsafe_state fstype, ModeReason reason
 #endif
     case Mode::Number::TAKEOFF:
     case Mode::Number::TETHER_ZENITH:
+    case Mode::Number::TETHER_POWER:
     case Mode::Number::INITIALISING:
         break;
     }

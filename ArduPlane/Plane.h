@@ -160,6 +160,7 @@ public:
     friend class ModeThermal;
     friend class ModeLoiterAltQLand;
     friend class ModeTetherZenith;
+    friend class ModeTetherPower;
 
     Plane(void);
 
@@ -293,6 +294,7 @@ private:
     ModeThermal mode_thermal;
 #endif
     ModeTetherZenith mode_tether_zenith;
+    ModeTetherPower mode_tether_power;
 
     // This is the state of the flight control system
     // There are multiple states defined such as MANUAL, FBW-A, AUTO
